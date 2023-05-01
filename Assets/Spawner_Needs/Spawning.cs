@@ -11,6 +11,7 @@ public class Spawning : MonoBehaviour
     [Header("Loop")]
     public bool stopLoop = false;
     public float amounttoSpawn;
+    public bool repeatable;
 
     [Header("Time Delay")]
     public float spawntime;
@@ -25,7 +26,10 @@ public class Spawning : MonoBehaviour
         if(triggered != true)
         {
             InvokeRepeating("SpawnObject", spawntime, spawndelay);
-            triggered = true;
+            if(repeatable == false)
+            {
+                triggered = true;
+            }
         }
     }
 
